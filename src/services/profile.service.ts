@@ -14,7 +14,7 @@ class ProfileService {
 
             return {
                 login: payload.user.login,
-                avatarUrl: payload.user.avatarUrl,
+                avatarUrl: payload.user.avatarHash,
                 first_name: payload.user.first_name,
                 id_employee: payload.user.id_employee,
                 id_organization: payload.user.id_organization,

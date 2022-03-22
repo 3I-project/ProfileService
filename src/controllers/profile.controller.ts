@@ -20,7 +20,7 @@ class ProfileController {
         }
 
         return res.status(200).json({
-            status: false,
+            status: true,
             payload: {
                 user
             }

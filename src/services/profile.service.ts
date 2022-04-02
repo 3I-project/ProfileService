@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IUser} from "../types/IUser";
+import {IIdea, IUser} from "../types/IUser";
 
 class ProfileService {
     static async getUserById (id: string, token: string) : Promise<IUser> {
@@ -28,6 +28,16 @@ class ProfileService {
     }
 
     static async getUserMainInformation (id: string, token: string) : Promise<any> {}
+
+    static async getProfilePosts (id: string, token: string) : Promise<IIdea[]> {
+        const response = await axios.get(`http://localhost:5500/apiV1/idea/user-posts/${id}`, {
+            headers: {
+                authorization: token
+            }
+        })
+
+        return response.data.payload.ideas;
+    }
 }
 
 export default ProfileService

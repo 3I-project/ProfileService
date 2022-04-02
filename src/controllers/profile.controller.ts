@@ -19,10 +19,13 @@ class ProfileController {
             })
         }
 
+        const posts = await ProfileService.getProfilePosts(id, token);
+
         return res.status(200).json({
             status: true,
             payload: {
-                user
+                user,
+                posts
             }
         })
     }

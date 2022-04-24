@@ -1,10 +1,10 @@
 import {Request} from "express";
 import ProfileService from "../services/profile.service"
-import {IUser} from "../types/IUser";
+import {Types} from "../types/types";
 
 class ProfileController {
 
-    static async getProfile (req: Request, res): Promise<IUser> {
+    static async getProfile (req: Request, res): Promise<Types> {
         const { id } = req.params
         const token = req.headers.authorization
 
@@ -20,12 +20,14 @@ class ProfileController {
         }
 
         const posts = await ProfileService.getProfilePosts(id, token);
+        const personalInformation = await ProfileService.getProfilePersonalInformation(id);
 
         return res.status(200).json({
             status: true,
             payload: {
                 user,
-                posts
+                posts,
+                personalInformation
             }
         })
     }

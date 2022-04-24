@@ -1,4 +1,4 @@
-export interface IUser {
+export interface Types {
     id_employee: number,
     id_organization: number,
     login: string,
@@ -22,11 +22,17 @@ export interface IIdea {
     "type": string
 }
 
-
 export interface IAuthor {
     "first_name": string,
     "last_name": string,
     "isLeader": boolean,
     "avatarHash"?: string,
     "reg_date": string
+}
+
+export interface IPersonalInformation {
+    user_id: number,
+    education: string,
+    date_birth: string,
+    about: string
 }

@@ -1,8 +1,10 @@
 import axios from "axios";
-import {IIdea, IUser} from "../types/IUser";
+import {IIdea, IPersonalInformation, Types} from "../types/types";
+
+import { db } from '../db/connection';
 
 class ProfileService {
-    static async getUserById (id: string, token: string) : Promise<IUser> {
+    static async getUserById (id: string, token: string) : Promise<Types> {
         try {
             const response = await axios.get(`http://localhost:5500/apiV1/auth/user/${id}`, {
                 headers: {
@@ -27,8 +29,6 @@ class ProfileService {
         }
     }
 
-    static async getUserMainInformation (id: string, token: string) : Promise<any> {}
-
     static async getProfilePosts (id: string, token: string) : Promise<IIdea[]> {
         const response = await axios.get(`http://localhost:5500/apiV1/idea/user-posts/${id}`, {
             headers: {
@@ -37,6 +37,24 @@ class ProfileService {
         })
 
         return response.data.payload.ideas;
+    }
+
+    static async getProfilePersonalInformation (id_user: string) : Promise<IPersonalInformation> {
+        try {
+            const queryString = `SELECT * FROM personalinformation WHERE user_id=${id_user}`;
+            const result = await db.query(queryString);
+
+            const data = result.rows[0]
+
+            return {
+                user_id: data.user_id,
+                education: data.education,
+                date_birth: data.date_birth,
+                about: data.about
+            }
+        } catch (e) {
+            return null
+        }
     }
 }
 

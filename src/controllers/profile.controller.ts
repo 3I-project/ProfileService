@@ -1,6 +1,6 @@
 import {Request} from "express";
 import ProfileService from "../services/profile.service"
-import {IPersonalInformation, Types} from "../types/types";
+import {Types} from "../types/types";
 
 class ProfileController {
 

@@ -56,6 +56,21 @@ class ProfileService {
             return null
         }
     }
+
+    static async updateProfilePersonalInformation (payload: IPersonalInformation) : Promise<boolean> {
+        try {
+            const queryString = `
+            INSERT INTO personalinformation VALUES ($1, $2, $3, $4) 
+            ON CONFLICT (user_id) DO UPDATE SET user_id=$1, education=$2, date_birth=$3, about=$4
+        `
+            await db.query(queryString, [payload.user_id, payload.education, payload.date_birth, payload.about]);
+
+            return true
+        } catch (e) {
+            console.log(e)
+            return false
+        }
+    }
 }
 
 export default ProfileService

@@ -2,6 +2,7 @@ require('dotenv').config({ path: __dirname + '/.env' })
 
 const cors = require('cors')
 const express = require('express')
+// const bodyParser = require('body-parser')
 const app = express()
 
 const PORT = 6500 || process.env.PORT
@@ -20,6 +21,9 @@ const startServer = async () => {
                 origin: ['http://localhost:8080', 'https://frontend-3i.herokuapp.com', 'http://localhost:6500'],
                 credentials: true,
             }))
+
+            // app.use(bodyParser.urlencoded({ extended: true })) // получение обекта req.body
+            app.use(express.json())
 
             initRoutes(app)
 

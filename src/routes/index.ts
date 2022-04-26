@@ -6,7 +6,8 @@ const { ProfileController } = require('../controllers/profile.controller')
 
 const apiVersion = '/apiV1'
 
-router.get('/profile/:id', authProtect, ProfileController.getProfile)
+router.get('/profile/:id', authProtect, ProfileController.getProfile);
+router.post('/update-pi', authProtect, ProfileController.updatePersonalInformation);
 
 module.exports.initRoutes = (app: Express) => {
  app.use(`${apiVersion}/`, router)

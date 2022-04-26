@@ -1,6 +1,6 @@
 import {Request} from "express";
 import ProfileService from "../services/profile.service"
-import {Types} from "../types/types";
+import {IPersonalInformation, Types} from "../types/types";
 
 class ProfileController {
 
@@ -28,6 +28,27 @@ class ProfileController {
                 user,
                 posts,
                 personalInformation
+            }
+        })
+    }
+
+    static async updatePersonalInformation (req: Request, res) {
+        const { payload } = req.body;
+        if (!payload) {
+            return res.status(400).json({
+                status: false,
+                payload: {
+                    message: 'payload empty!'
+                }
+            })
+        }
+
+        const status = await ProfileService.updateProfilePersonalInformation(payload);
+
+        return res.status(200).json({
+            status: false,
+            payload: {
+                success: status
             }
         })
     }

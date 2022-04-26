@@ -46,7 +46,7 @@ class ProfileController {
         const status = await ProfileService.updateProfilePersonalInformation(payload);
 
         return res.status(200).json({
-            status: false,
+            status: true,
             payload: {
                 success: status
             }

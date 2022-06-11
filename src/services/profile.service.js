@@ -48,7 +48,7 @@ var ProfileService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, axios_1.default.get("http://localhost:5500/apiV1/auth/user/".concat(id), {
+                        return [4 /*yield*/, axios_1.default.get("http://134.0.115.249:5500/apiV1/auth/user/".concat(id), {
                                 headers: {
                                     authorization: token
                                 }
@@ -79,7 +79,7 @@ var ProfileService = /** @class */ (function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios_1.default.get("http://localhost:5500/apiV1/idea/user-posts/".concat(id), {
+                    case 0: return [4 /*yield*/, axios_1.default.get("http://134.0.115.249:5500/apiV1/idea/user-posts/".concat(id), {
                             headers: {
                                 authorization: token
                             }

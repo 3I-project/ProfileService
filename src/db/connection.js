@@ -8,8 +8,8 @@ exports.db = new pg_1.Pool({
     database: process.env["DB_DATABASE"],
     password: process.env["DB_PASSWORD"],
     port: Number(process.env["DB_PORT"]),
-    ssl: {
-        rejectUnauthorized: false
-    }
+    // ssl: {
+    //     rejectUnauthorized: false
+    // }
 });
 //# sourceMappingURL=connection.js.map

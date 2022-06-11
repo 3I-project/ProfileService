@@ -43,7 +43,7 @@ var verifyToken = function (token) { return __awaiter(void 0, void 0, void 0, fu
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, axios.post('http://localhost:5500/apiV1/token/validate', {
+                return [4 /*yield*/, axios.post('http://134.0.115.249:5500/apiV1/token/validate', {
                         token: token
                     })];
             case 1:

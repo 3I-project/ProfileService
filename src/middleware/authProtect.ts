@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const verifyToken = async (token: string) => {
     try {
-        const response = await axios.post('http://localhost:5500/apiV1/token/validate', {
+        const response = await axios.post('http://134.0.115.249:5500/apiV1/token/validate', {
             token
         })
         return response.data;

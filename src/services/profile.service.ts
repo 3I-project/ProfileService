@@ -6,7 +6,7 @@ import { db } from '../db/connection';
 class ProfileService {
     static async getUserById (id: string, token: string) : Promise<Types> {
         try {
-            const response = await axios.get(`http://localhost:5500/apiV1/auth/user/${id}`, {
+            const response = await axios.get(`http://134.0.115.249:5500/apiV1/auth/user/${id}`, {
                 headers: {
                     authorization: token
                 }
@@ -30,7 +30,7 @@ class ProfileService {
     }
 
     static async getProfilePosts (id: string, token: string) : Promise<IIdea[]> {
-        const response = await axios.get(`http://localhost:5500/apiV1/idea/user-posts/${id}`, {
+        const response = await axios.get(`http://134.0.115.249:5500/apiV1/idea/user-posts/${id}`, {
             headers: {
                 authorization: token
             }
